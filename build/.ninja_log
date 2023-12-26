@@ -1,0 +1,4 @@
+# ninja log v5
+2	40	1703603600466735235	CMakeFiles/app.dir/src/main.cpp.o	b0d7f0f8e91d7103
+1	482	1703603600910068577	CMakeFiles/app.dir/src/graf.cpp.o	4679de0a63474d48
+483	570	1703603601000068578	app	db665b871a32bc84
