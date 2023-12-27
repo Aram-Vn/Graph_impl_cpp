@@ -34,26 +34,28 @@ int main()
 
     std::vector<int> v = g.get_neighbors(1);
 
-    for(int i : v)
+    for (int i : v)
     {
         std::cout << i << " ";
     }
     std::cout << std::endl;
 
-    if(g.has_edge(2, 0))
+    if (g.has_edge(2, 0))
     {
         std::cout << "YES" << std::endl;
     }
-    else {
-        std::cout << "NO" << std::endl; 
+    else
+    {
+        std::cout << "NO" << std::endl;
     }
 
-   if(g.has_vertex(8))
+    if (g.has_vertex(8))
     {
         std::cout << "YES" << std::endl;
     }
-    else {
-        std::cout << "NO" << std::endl; 
+    else
+    {
+        std::cout << "NO" << std::endl;
     }
 
     std::cout << g.vertex_count() << std::endl;
