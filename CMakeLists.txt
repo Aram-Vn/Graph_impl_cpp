@@ -8,5 +8,5 @@ file(GLOB_RECURSE HDR_FILES "src/*.h")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
-add_executable(app ${SRC_FILES} ${HPP_FILES} ${HDR_FILES})
+add_executable(graph_app ${SRC_FILES} ${HPP_FILES} ${HDR_FILES})
 

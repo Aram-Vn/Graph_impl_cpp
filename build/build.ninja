@@ -41,41 +41,41 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/aram/dev/Graph_impl_cpp/build/
 # =============================================================================
-# Object build statements for EXECUTABLE target app
+# Object build statements for EXECUTABLE target graph_app
 
 
 #############################################
-# Order-only phony target for app
+# Order-only phony target for graph_app
 
-build cmake_object_order_depends_target_app: phony || CMakeFiles/app.dir
+build cmake_object_order_depends_target_graph_app: phony || CMakeFiles/graph_app.dir
 
-build CMakeFiles/app.dir/src/graf.cpp.o: CXX_COMPILER__app_unscanned_Debug /home/aram/dev/Graph_impl_cpp/src/graf.cpp || cmake_object_order_depends_target_app
-  DEP_FILE = CMakeFiles/app.dir/src/graf.cpp.o.d
+build CMakeFiles/graph_app.dir/src/graph.cpp.o: CXX_COMPILER__graph_app_unscanned_Debug /home/aram/dev/Graph_impl_cpp/src/graph.cpp || cmake_object_order_depends_target_graph_app
+  DEP_FILE = CMakeFiles/graph_app.dir/src/graph.cpp.o.d
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/app.dir
-  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+  OBJECT_DIR = CMakeFiles/graph_app.dir
+  OBJECT_FILE_DIR = CMakeFiles/graph_app.dir/src
 
-build CMakeFiles/app.dir/src/main.cpp.o: CXX_COMPILER__app_unscanned_Debug /home/aram/dev/Graph_impl_cpp/src/main.cpp || cmake_object_order_depends_target_app
-  DEP_FILE = CMakeFiles/app.dir/src/main.cpp.o.d
+build CMakeFiles/graph_app.dir/src/main.cpp.o: CXX_COMPILER__graph_app_unscanned_Debug /home/aram/dev/Graph_impl_cpp/src/main.cpp || cmake_object_order_depends_target_graph_app
+  DEP_FILE = CMakeFiles/graph_app.dir/src/main.cpp.o.d
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/app.dir
-  OBJECT_FILE_DIR = CMakeFiles/app.dir/src
+  OBJECT_DIR = CMakeFiles/graph_app.dir
+  OBJECT_FILE_DIR = CMakeFiles/graph_app.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target app
+# Link build statements for EXECUTABLE target graph_app
 
 
 #############################################
-# Link the executable app
+# Link the executable graph_app
 
-build app: CXX_EXECUTABLE_LINKER__app_Debug CMakeFiles/app.dir/src/graf.cpp.o CMakeFiles/app.dir/src/main.cpp.o
+build graph_app: CXX_EXECUTABLE_LINKER__graph_app_Debug CMakeFiles/graph_app.dir/src/graph.cpp.o CMakeFiles/graph_app.dir/src/main.cpp.o
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/app.dir
+  OBJECT_DIR = CMakeFiles/graph_app.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = app
-  TARGET_PDB = app.dbg
+  TARGET_FILE = graph_app
+  TARGET_PDB = graph_app.dbg
 
 
 #############################################
@@ -112,7 +112,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /home/aram/dev/Graph_impl_cpp/build
 
-build all: phony app
+build all: phony graph_app
 
 # =============================================================================
 # Built-in targets

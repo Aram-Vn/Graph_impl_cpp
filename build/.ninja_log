@@ -1,4 +1,7 @@
 # ninja log v5
-2	40	1703603600466735235	CMakeFiles/app.dir/src/main.cpp.o	b0d7f0f8e91d7103
-1	482	1703603600910068577	CMakeFiles/app.dir/src/graf.cpp.o	4679de0a63474d48
-483	570	1703603601000068578	app	db665b871a32bc84
+2	468	1703677293453340498	CMakeFiles/app.dir/src/main.cpp.o	b0d7f0f8e91d7103
+1	497	1703665824030048387	CMakeFiles/app.dir/src/graf.cpp.o	4679de0a63474d48
+1	597	1703677293583340500	CMakeFiles/app.dir/src/graph.cpp.o	bfd36b74c617e92f
+2	436	1703677880696685000	CMakeFiles/graph_app.dir/src/main.cpp.o	1adbc160c0d768eb
+2	571	1703677880830018336	CMakeFiles/graph_app.dir/src/graph.cpp.o	1e8e3d920053ef13
+571	652	1703677880913351671	graph_app	869f5e6685a21a44

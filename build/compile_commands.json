@@ -1,14 +1,14 @@
 [
 {
   "directory": "/home/aram/dev/Graph_impl_cpp/build",
-  "command": "/usr/bin/clang++ -g -o CMakeFiles/app.dir/src/graf.cpp.o -c /home/aram/dev/Graph_impl_cpp/src/graf.cpp",
-  "file": "/home/aram/dev/Graph_impl_cpp/src/graf.cpp",
-  "output": "CMakeFiles/app.dir/src/graf.cpp.o"
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/graph_app.dir/src/graph.cpp.o -c /home/aram/dev/Graph_impl_cpp/src/graph.cpp",
+  "file": "/home/aram/dev/Graph_impl_cpp/src/graph.cpp",
+  "output": "CMakeFiles/graph_app.dir/src/graph.cpp.o"
 },
 {
   "directory": "/home/aram/dev/Graph_impl_cpp/build",
-  "command": "/usr/bin/clang++ -g -o CMakeFiles/app.dir/src/main.cpp.o -c /home/aram/dev/Graph_impl_cpp/src/main.cpp",
+  "command": "/usr/bin/clang++ -g -o CMakeFiles/graph_app.dir/src/main.cpp.o -c /home/aram/dev/Graph_impl_cpp/src/main.cpp",
   "file": "/home/aram/dev/Graph_impl_cpp/src/main.cpp",
-  "output": "CMakeFiles/app.dir/src/main.cpp.o"
+  "output": "CMakeFiles/graph_app.dir/src/main.cpp.o"
 }
 ]
