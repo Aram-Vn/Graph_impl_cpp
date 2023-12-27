@@ -1,4 +1,4 @@
-uild/
+build/
 .cache/
 compile_commands.json
 unweighted_graph/src/*.out
