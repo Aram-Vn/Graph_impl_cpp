@@ -1,3 +1,5 @@
-build/
+uild/
 .cache/
 compile_commands.json
+unweighted_graph/src/*.out
+weighted_graph/src/*.out
