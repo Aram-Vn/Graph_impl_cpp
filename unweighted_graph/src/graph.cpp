@@ -1,6 +1,7 @@
 #include "graph.h"
 #include <iostream>
 #include <stdexcept>
+#include <type_traits>
 #include <unordered_set>
 #include <vector>
 
@@ -83,12 +84,13 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
             short_path = path;
         }
     }
-    else {
+    else
+    {
         for (int neighbor : vec[curVert])
-        {   
-            if(visited.find(neighbor) == visited.end())
+        {
+            if (visited.find(neighbor) == visited.end())
             {
-               dfs(neighbor, destVert, visited, path, short_path);
+                dfs(neighbor, destVert, visited, path, short_path);
             }
         }
     }
@@ -96,3 +98,13 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
     visited.erase(curVert);
 }
 
+void Graph::remove_edge(int vertex1, int vertex2)
+{
+    if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
+    {
+        throw std::out_of_range("for remove_edge\ncant add edge");
+    }
+
+    auto newEnd = std::remove(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
+    vec[vertex1].erase(newEnd, vec[vertex1].end());
+}

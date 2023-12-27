@@ -18,6 +18,9 @@ public:
     void add_edge(int vertex1, int vertex2);                   //
     void print() const;                                        //
     std::vector<int> shortest_path(int curVert, int destVert); //
+    void bfs(int curVert);
+
+    
 
     void remove_vertex(int vertex);
     void remove_edge(int vertex1, int vertex2);
