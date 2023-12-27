@@ -38,7 +38,7 @@ void Graph::add_edge(int vertex1, int vertex2)
 }
 
 //---------------------------_print_--------------------------//
-void Graph::print()
+void Graph::print() const
 {
     for (int i = 0; i < vec.size(); ++i)
     {
@@ -95,3 +95,4 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
     path.pop_back();
     visited.erase(curVert);
 }
+
