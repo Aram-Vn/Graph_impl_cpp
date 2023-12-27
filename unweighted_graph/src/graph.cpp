@@ -1,4 +1,5 @@
 #include "graph.h"
+#include <cstddef>
 #include <iostream>
 #include <stdexcept>
 #include <type_traits>
@@ -72,7 +73,7 @@ std::vector<int> Graph::shortest_path(int curVert, int destVert)
 }
 
 void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std::vector<int>& path,
-                std::vector<int>& short_path)
+                std::vector<int>& short_path) const
 {
     visited.insert(curVert);
     path.push_back(curVert);
@@ -98,6 +99,7 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
     visited.erase(curVert);
 }
 
+//-----------------------------_remove_edge_----------------------//
 void Graph::remove_edge(int vertex1, int vertex2)
 {
     if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
@@ -107,4 +109,70 @@ void Graph::remove_edge(int vertex1, int vertex2)
 
     auto newEnd = std::remove(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
     vec[vertex1].erase(newEnd, vec[vertex1].end());
+}
+
+//---------------------------_get_neighbors_------------------------//
+std::vector<int> Graph::get_neighbors(int vertex) const
+{
+    if (vertex < 0 || vertex >= vec.size())
+    {
+        throw std::out_of_range("for get_neighbors\ncan't add edge");
+    }
+
+    return vec[vertex];
+}
+
+//---------------------------_has_edge_-----------------------------//
+bool Graph::has_edge(int vertex1, int vertex2) const
+{
+    if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
+    {
+        throw std::out_of_range("for remove_edge\ncant add edge");
+    }
+
+    auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
+
+    if (it != vec[vertex1].end())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+//-----------------------------_has_vertex_--------------------------//
+bool Graph::has_vertex(int vertex) const
+{
+    if (vertex < 0 || vertex >= vec.size())
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+//------------------------------_vertex_count_-----------------------//
+size_t Graph::vertex_count() const
+{
+    return vec.size() - 1;
+}
+
+//------------------------------_edge_count_-------------------------//
+size_t Graph::edge_count() const
+{
+    size_t count = 0;
+
+    for (int i = 0; i < vec.size(); ++i)
+    {
+        for (int j = 0; j < vec[i].size(); ++j)
+        {
+            ++count;
+        }
+    }
+
+    return count;
 }
