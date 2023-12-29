@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <iterator>
+#include <queue>
 #include <stdexcept>
 #include <unordered_set>
 #include <vector>
@@ -23,9 +24,9 @@ public:
     bool has_edge(int vertex1, int vertex2) const;             //
     bool has_vertex(int vertex) const;                         //
     size_t vertex_count() const;                               //
-    size_t edge_count() const;
+    size_t edge_count() const;                                 //
+    void bfs(int curVert);                                     //
 
-    void bfs(int curVert);
     void remove_vertex(int vertex);
 
     // connected_components();

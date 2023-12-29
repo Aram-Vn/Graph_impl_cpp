@@ -5,12 +5,10 @@
 int main()
 {
     Graph g(6);
-    g.add_vertex(7);
 
     g.add_edge(0, 1);
     g.add_edge(0, 4);
     g.add_edge(0, 5);
-    g.add_edge(0, 6);
     g.add_edge(1, 0);
     g.add_edge(1, 2);
     g.add_edge(1, 3);
@@ -60,4 +58,7 @@ int main()
 
     std::cout << g.vertex_count() << std::endl;
     std::cout << g.edge_count() << std::endl;
+
+    g.bfs(0);
+    
 }

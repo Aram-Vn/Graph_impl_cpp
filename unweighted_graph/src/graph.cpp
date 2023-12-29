@@ -1,6 +1,7 @@
 #include "graph.h"
 #include <cstddef>
 #include <iostream>
+#include <queue>
 #include <stdexcept>
 #include <type_traits>
 #include <unordered_set>
@@ -175,4 +176,31 @@ size_t Graph::edge_count() const
     }
 
     return count;
+}
+
+//------------------------------_bfs_---------------------------------//
+void Graph::bfs(int curVert)
+{
+    std::unordered_set<int> visited;
+    std::queue<int> nodes;
+
+    nodes.push(curVert);
+    visited.insert(curVert);
+
+    while (!nodes.empty())
+    {
+        int tmp = nodes.front();
+        std::cout << tmp << " ";
+        nodes.pop();
+
+        for (int neighbor : vec[tmp])
+        {
+            if (visited.find(neighbor) == visited.end())
+            {
+                nodes.push(neighbor);
+                visited.insert(neighbor);
+            }
+        }
+    }
+    std::cout << std::endl;
 }
