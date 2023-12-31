@@ -6,7 +6,7 @@ int main()
 {
     Graph g(6);
 
-    g.add_vertex(88);
+    g.add_vertex(7);
 
     g.add_edge(0, 1);
     g.add_edge(0, 4);
