@@ -16,8 +16,7 @@ void Graph::add_vertex(int vertex)
 {
     if (vertex < vec.size())
     {
-        std::cout << "in add_vertex\ncan't add vertex" << std::endl;
-        return;
+        std::out_of_range("in add_vertex\ncan't add vertex");
     }
 
     vec.emplace_back(std::vector<int>());
@@ -28,8 +27,7 @@ void Graph::add_edge(int vertex1, int vertex2)
 {
     if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
     {
-        std::cout << "for add_edge\ncant add edge" << std::endl;
-        return;
+        std::out_of_range("for add_edge\ncant add edge");
     }
 
     auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
@@ -60,7 +58,6 @@ std::vector<int> Graph::shortest_path(int curVert, int destVert)
 {
     if (curVert < 0 || curVert >= vec.size() || destVert < 0 || destVert >= vec.size())
     {
-        std::cout << "in shortest_path\ncan't find shortest path" << std::endl;
         std::out_of_range("curVert || destVert is out of rainge");
     }
 
@@ -105,7 +102,7 @@ void Graph::remove_edge(int vertex1, int vertex2)
 {
     if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
     {
-        throw std::out_of_range("for remove_edge\ncant add edge");
+        throw std::out_of_range("for remove_edge\ncant remove edge");
     }
 
     auto newEnd = std::remove(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
@@ -117,7 +114,7 @@ std::vector<int> Graph::get_neighbors(int vertex) const
 {
     if (vertex < 0 || vertex >= vec.size())
     {
-        throw std::out_of_range("for get_neighbors\ncan't add edge");
+        throw std::out_of_range("for get_neighbors\ncan't find neighbor");
     }
 
     return vec[vertex];
@@ -128,7 +125,7 @@ bool Graph::has_edge(int vertex1, int vertex2) const
 {
     if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
     {
-        throw std::out_of_range("for remove_edge\ncant add edge");
+        throw std::out_of_range("for remove_edge\ncant find edge");
     }
 
     auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
@@ -211,7 +208,6 @@ void Graph::remove_vertex(int vertex)
     if (vertex < 0 || vertex >= vec.size())
     {
         throw std::out_of_range("for remove_vertex\ncant remove edge");
-        exit(0);
     }
 
 
