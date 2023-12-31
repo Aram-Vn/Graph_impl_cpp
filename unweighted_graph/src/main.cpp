@@ -9,56 +9,64 @@ int main()
     g.add_edge(0, 1);
     g.add_edge(0, 4);
     g.add_edge(0, 5);
+
     g.add_edge(1, 0);
     g.add_edge(1, 2);
     g.add_edge(1, 3);
+    
     g.add_edge(2, 1);
     g.add_edge(2, 3);
+    
     g.add_edge(3, 1);
     g.add_edge(3, 2);
     g.add_edge(3, 4);
     g.add_edge(3, 5);
+    
     g.add_edge(4, 0);
     g.add_edge(4, 3);
     g.add_edge(4, 3);
+    
     g.add_edge(5, 0);
     g.add_edge(5, 3);
 
     g.print();
 
-    g.remove_edge(0, 1);
-
-    g.print();
-
-    std::vector<int> v = g.get_neighbors(1);
-
-    for (int i : v)
-    {
-        std::cout << i << " ";
-    }
+    g.remove_vertex(1);
     std::cout << std::endl;
+    g.print();
+    // g.remove_edge(0, 1);
 
-    if (g.has_edge(2, 0))
-    {
-        std::cout << "YES" << std::endl;
-    }
-    else
-    {
-        std::cout << "NO" << std::endl;
-    }
+    // g.print();
 
-    if (g.has_vertex(8))
-    {
-        std::cout << "YES" << std::endl;
-    }
-    else
-    {
-        std::cout << "NO" << std::endl;
-    }
+    // std::vector<int> v = g.get_neighbors(1);
 
-    std::cout << g.vertex_count() << std::endl;
-    std::cout << g.edge_count() << std::endl;
+    // for (int i : v)
+    // {
+    //     std::cout << i << " ";
+    // }
+    // std::cout << std::endl;
 
-    g.bfs(0);
+    // if (g.has_edge(2, 0))
+    // {
+    //     std::cout << "YES" << std::endl;
+    // }
+    // else
+    // {
+    //     std::cout << "NO" << std::endl;
+    // }
+
+    // if (g.has_vertex(8))
+    // {
+    //     std::cout << "YES" << std::endl;
+    // }
+    // else
+    // {
+    //     std::cout << "NO" << std::endl;
+    // }
+
+    // std::cout << g.vertex_count() << std::endl;
+    // std::cout << g.edge_count() << std::endl;
+
+    // g.bfs(0);
     
 }

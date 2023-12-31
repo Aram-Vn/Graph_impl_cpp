@@ -204,3 +204,21 @@ void Graph::bfs(int curVert)
     }
     std::cout << std::endl;
 }
+
+//----------------------------_remove_vertex_--------------------------//
+void Graph::remove_vertex(int vertex)
+{
+    if (vertex < 0 || vertex >= vec.size())
+    {
+        throw std::out_of_range("for remove_vertex\ncant remove edge");
+        exit(0);
+    }
+
+
+    for(int i = 0; i < vec.size(); ++i){
+        this->remove_edge(i, vertex);
+    }
+
+    vec.erase(vec.begin() + vertex);
+    
+}
