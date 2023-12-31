@@ -12,14 +12,32 @@ Graph::Graph(int x) : vec(x, std::vector<int>())
 }
 
 //-------------------------_add_vertex_---------------------//
+// void Graph::add_vertex(int vertex)
+// {
+//     if (vertex < vec.size())
+//     {
+//         throw std::out_of_range("in add_vertex\ncan't add vertex");
+//     }
+
+//     vec.emplace_back(std::vector<int>());
+// }
+
 void Graph::add_vertex(int vertex)
 {
-    if (vertex < vec.size())
+    try
     {
-        std::out_of_range("in add_vertex\ncan't add vertex");
-    }
 
-    vec.emplace_back(std::vector<int>());
+        if (vertex > vec.size() + 1 || vertex < 0)
+        {
+            throw std::out_of_range("in add_vertex\ncan't add vertex");
+        }
+
+        vec.emplace_back(std::vector<int>());
+    }
+    catch (const std::out_of_range& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }
 
 //--------------------------_add_edge_-----------------------//
@@ -27,7 +45,7 @@ void Graph::add_edge(int vertex1, int vertex2)
 {
     if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
     {
-        std::out_of_range("for add_edge\ncant add edge");
+        throw std::out_of_range("for add_edge\ncant add edge");
     }
 
     auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
@@ -58,7 +76,7 @@ std::vector<int> Graph::shortest_path(int curVert, int destVert)
 {
     if (curVert < 0 || curVert >= vec.size() || destVert < 0 || destVert >= vec.size())
     {
-        std::out_of_range("curVert || destVert is out of rainge");
+        throw std::out_of_range("curVert || destVert is out of rainge");
     }
 
     std::unordered_set<int> visited;
@@ -210,11 +228,10 @@ void Graph::remove_vertex(int vertex)
         throw std::out_of_range("for remove_vertex\ncant remove edge");
     }
 
-
-    for(int i = 0; i < vec.size(); ++i){
+    for (int i = 0; i < vec.size(); ++i)
+    {
         this->remove_edge(i, vertex);
     }
 
     vec.erase(vec.begin() + vertex);
-    
 }
