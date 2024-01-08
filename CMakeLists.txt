@@ -1,18 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
-project("graph")
+project("Graph")
 
-# Unweighted graph
-file(GLOB_RECURSE SRC_FILES "unweighted_graph/src/*.cpp")
-file(GLOB_RECURSE HPP_FILES "unweighted_graph/src/*.hpp")
-file(GLOB_RECURSE HDR_FILES "unweighted_graph/src/*.h")
+add_subdirectory("unweighted_graph")
+set(UNWEIGHTED_GRAPH_INCLUDE_DIRS unweighted_graph/src)
+add_subdirectory("weighted_graph")
+set(WEIGHTED_GRAPH_INCLUDE_DIRS weighted_graph/src)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
-
-add_executable(u_graph_app ${SRC_FILES} ${HPP_FILES} ${HDR_FILES})
-
-# Weighted graph
-file(GLOB_RECURSE W_SRC_FILES "weighted_graph/src/*.cpp")
-file(GLOB_RECURSE W_HPP_FILES "weighted_graph/src/*.hpp")
-file(GLOB_RECURSE W_HDR_FILES "weighted_graph/src/*.h")
-
-add_executable(w_graph_app ${W_SRC_FILES} ${W_HPP_FILES} ${W_HDR_FILES})
+add_executable(app "main.cpp")
+target_include_directories(app PRIVATE ${UNWEIGHTED_GRAPH_INCLUDE_DIRS})
+target_include_directories(app PRIVATE ${WEIGHTED_GRAPH_INCLUDE_DIRS})
+target_link_libraries(app Unweighted_Graph)
+target_link_libraries(app Weighted_Graph)

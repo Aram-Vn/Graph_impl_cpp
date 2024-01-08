@@ -224,5 +224,13 @@ void Graph::remove_vertex(int vertex)
         this->remove_edge(i, vertex);
     }
 
+    for(int i = vertex; i < vec.size(); ++i)
+    {
+        for(int j = 0; j < vec[i].size(); ++j)
+        {
+            vec[i][j]--;
+        }
+    }
+
     vec.erase(vec.begin() + vertex);
 }

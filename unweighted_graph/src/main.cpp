@@ -38,6 +38,8 @@ int main()
     g.print();
     // g.remove_edge(0, 1);
 
+    std::vector<int> i;
+
     // g.print();
 
     // std::vector<int> v = g.get_neighbors(1);
