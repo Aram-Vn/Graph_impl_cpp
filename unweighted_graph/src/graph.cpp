@@ -16,7 +16,6 @@ void Graph::add_vertex(int vertex)
 {
     try
     {
-
         if (vertex > vec.size() + 1 || vertex < 0)
         {
             std::cout << "can't add vertex " << vertex << std::endl;
@@ -224,11 +223,14 @@ void Graph::remove_vertex(int vertex)
         this->remove_edge(i, vertex);
     }
 
-    for(int i = vertex; i < vec.size(); ++i)
+    for (int i = vertex; i < vec.size(); ++i)
     {
-        for(int j = 0; j < vec[i].size(); ++j)
+        for (int j = 0; j < vec[i].size(); ++j)
         {
-            vec[i][j]--;
+            if (vec[i][j] > vertex)
+            {
+                vec[i][j]--;
+            }
         }
     }
 

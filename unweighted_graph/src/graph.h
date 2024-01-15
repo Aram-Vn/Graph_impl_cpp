@@ -29,7 +29,6 @@ public:
 
     void remove_vertex(int vertex);
 
-    // connected_components();
 
 private:
     void dfs(int curVert, int destVert, std::unordered_set<int>& visited, std::vector<int>& path,

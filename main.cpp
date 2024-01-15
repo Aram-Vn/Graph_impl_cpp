@@ -90,7 +90,7 @@ int main()
 
     g.print();
 
-    g.remove_vertex(1);
+    g.remove_vertex(2);
     std::cout << std::endl;
     g.print();
     // g.remove_edge(0, 1);
