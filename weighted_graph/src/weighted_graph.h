@@ -20,9 +20,9 @@ private:
     void dijkstra_helper(int vertex, std::vector<int>& fast); // Helper function for Dijkstra's algorithm
 
 private:
-    std::vector<std::vector<std::pair<int, int>>> vec; /* Adjacency list representation of the weighted graph
-                                                        * Each element is a pair representing a connected vertex and the
-                                                        * weight of the edge */
+    std::vector<std::vector<std::pair<int, int>>> m_weighted_graph; /* Adjacency list representation of the weighted
+                                                                    * graph Each element is a pair representing a
+                                                                    * connected vertex and the weight of the edge */
 };
 
 #endif // WEIGHTED_GRAPH_H

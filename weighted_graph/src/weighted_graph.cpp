@@ -2,18 +2,18 @@
 
 
 
-WeightedGraph::WeightedGraph(int size) : vec(size)
+WeightedGraph::WeightedGraph(int size) : m_weighted_graph(size)
 {
 }
 
 void WeightedGraph::add_edge(int vertex1, int vertex2, int weight)
 {
-    vec[vertex1].emplace_back(vertex2, weight);
+    m_weighted_graph[vertex1].emplace_back(vertex2, weight);
 }
 
 std::vector<int> WeightedGraph::dijkstra(int curVert)
 {
-    std::vector<int> fast(vec.size(), std::numeric_limits<int>::max());
+    std::vector<int> fast(m_weighted_graph.size(), std::numeric_limits<int>::max());
     fast[curVert] = 0;
 
     dijkstra_helper(curVert, fast);
@@ -28,7 +28,7 @@ std::vector<int> WeightedGraph::dijkstra(int curVert)
         return;
     }
 
-    for (auto neighbor : vec[vertex]) 
+    for (auto neighbor : m_weighted_graph[vertex]) 
     {
         int cur_node = neighbor.first;
         int cur_weight = neighbor.second;
