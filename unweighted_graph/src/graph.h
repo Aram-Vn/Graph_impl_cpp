@@ -33,7 +33,7 @@ private:
              std::vector<int>& short_path) const; // Depth-First Search // helper function for shortest_path function
 
 private:
-    std::vector<std::vector<int>> vec; // our graph
+    std::vector<std::vector<int>> m_graph; // Adjacency list representation of the unweighted graph
 };
 
 #endif // GRAPH_H

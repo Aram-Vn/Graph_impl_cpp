@@ -7,7 +7,7 @@
 #include <unordered_set>
 #include <vector>
 
-Graph::Graph(int x) : vec(x, std::vector<int>())
+Graph::Graph(int x) : m_graph(x, std::vector<int>())
 {
 }
 
@@ -16,13 +16,13 @@ void Graph::add_vertex(int vertex)
 {
     try
     {
-        if (vertex > vec.size() + 1 || vertex < 0)
+        if (vertex > m_graph.size() + 1 || vertex < 0)
         {
             std::cout << "can't add vertex " << vertex << std::endl;
             throw std::out_of_range("in add_vertex\n");
         }
 
-        vec.emplace_back(std::vector<int>());
+        m_graph.emplace_back(std::vector<int>());
     }
     catch (const std::out_of_range& e)
     {
@@ -33,29 +33,29 @@ void Graph::add_vertex(int vertex)
 //--------------------------_add_edge_-----------------------//
 void Graph::add_edge(int vertex1, int vertex2)
 {
-    if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
+    if (vertex1 < 0 || vertex1 >= m_graph.size() || vertex2 < 0 || vertex2 >= m_graph.size())
     {
         throw std::out_of_range("\nfor add_edge\ncant add edge");
     }
 
-    auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
+    auto it = std::find(m_graph[vertex1].begin(), m_graph[vertex1].end(), vertex2);
 
-    if (it == vec[vertex1].end())
+    if (it == m_graph[vertex1].end())
     {
-        vec[vertex1].push_back(vertex2);
+        m_graph[vertex1].push_back(vertex2);
     }
 }
 
 //---------------------------_print_--------------------------//
 void Graph::print() const
 {
-    for (int i = 0; i < vec.size(); ++i)
+    for (int i = 0; i < m_graph.size(); ++i)
     {
         std::cout << i << " -> ";
 
-        for (int j = 0; j < vec[i].size(); ++j)
+        for (int j = 0; j < m_graph[i].size(); ++j)
         {
-            std::cout << vec[i][j] << " ";
+            std::cout << m_graph[i][j] << " ";
         }
         std::cout << std::endl;
     }
@@ -64,7 +64,7 @@ void Graph::print() const
 //--------------------------_shortest_path_---------------------//
 std::vector<int> Graph::shortest_path(int curVert, int destVert)
 {
-    if (curVert < 0 || curVert >= vec.size() || destVert < 0 || destVert >= vec.size())
+    if (curVert < 0 || curVert >= m_graph.size() || destVert < 0 || destVert >= m_graph.size())
     {
         throw std::out_of_range("\nin shortest_path\ncurVert || destVert is out of rainge");
     }
@@ -93,7 +93,7 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
     }
     else
     {
-        for (int neighbor : vec[curVert])
+        for (int neighbor : m_graph[curVert])
         {
             if (visited.find(neighbor) == visited.end())
             {
@@ -108,37 +108,37 @@ void Graph::dfs(int curVert, int destVert, std::unordered_set<int>& visited, std
 //-----------------------------_remove_edge_----------------------//
 void Graph::remove_edge(int vertex1, int vertex2)
 {
-    if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
+    if (vertex1 < 0 || vertex1 >= m_graph.size() || vertex2 < 0 || vertex2 >= m_graph.size())
     {
         throw std::out_of_range("\nfor remove_edge\ncant remove edge");
     }
 
-    auto newEnd = std::remove(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
-    vec[vertex1].erase(newEnd, vec[vertex1].end());
+    auto newEnd = std::remove(m_graph[vertex1].begin(), m_graph[vertex1].end(), vertex2);
+    m_graph[vertex1].erase(newEnd, m_graph[vertex1].end());
 }
 
 //---------------------------_get_neighbors_------------------------//
 std::vector<int> Graph::get_neighbors(int vertex) const
 {
-    if (vertex < 0 || vertex >= vec.size())
+    if (vertex < 0 || vertex >= m_graph.size())
     {
         throw std::out_of_range("\nfor get_neighbors\ncan't find neighbor");
     }
 
-    return vec[vertex];
+    return m_graph[vertex];
 }
 
 //---------------------------_has_edge_-----------------------------//
 bool Graph::has_edge(int vertex1, int vertex2) const
 {
-    if (vertex1 < 0 || vertex1 >= vec.size() || vertex2 < 0 || vertex2 >= vec.size())
+    if (vertex1 < 0 || vertex1 >= m_graph.size() || vertex2 < 0 || vertex2 >= m_graph.size())
     {
         throw std::out_of_range("\nfor remove_edge\ncant find edge");
     }
 
-    auto it = std::find(vec[vertex1].begin(), vec[vertex1].end(), vertex2);
+    auto it = std::find(m_graph[vertex1].begin(), m_graph[vertex1].end(), vertex2);
 
-    if (it != vec[vertex1].end())
+    if (it != m_graph[vertex1].end())
     {
         return true;
     }
@@ -151,7 +151,7 @@ bool Graph::has_edge(int vertex1, int vertex2) const
 //-----------------------------_has_vertex_--------------------------//
 bool Graph::has_vertex(int vertex) const
 {
-    if (vertex < 0 || vertex >= vec.size())
+    if (vertex < 0 || vertex >= m_graph.size())
     {
         return false;
     }
@@ -164,7 +164,7 @@ bool Graph::has_vertex(int vertex) const
 //------------------------------_vertex_count_-----------------------//
 size_t Graph::vertex_count() const
 {
-    return vec.size() - 1;
+    return m_graph.size() - 1;
 }
 
 //------------------------------_edge_count_-------------------------//
@@ -172,9 +172,9 @@ size_t Graph::edge_count() const
 {
     size_t count = 0;
 
-    for (int i = 0; i < vec.size(); ++i)
+    for (int i = 0; i < m_graph.size(); ++i)
     {
-        for (int j = 0; j < vec[i].size(); ++j)
+        for (int j = 0; j < m_graph[i].size(); ++j)
         {
             ++count;
         }
@@ -198,7 +198,7 @@ void Graph::bfs(int curVert)
         std::cout << tmp << " ";
         nodes.pop();
 
-        for (int neighbor : vec[tmp])
+        for (int neighbor : m_graph[tmp])
         {
             if (visited.find(neighbor) == visited.end())
             {
@@ -213,26 +213,26 @@ void Graph::bfs(int curVert)
 //----------------------------_remove_vertex_--------------------------//
 void Graph::remove_vertex(int vertex)
 {
-    if (vertex < 0 || vertex >= vec.size())
+    if (vertex < 0 || vertex >= m_graph.size())
     {
         throw std::out_of_range("\nfor remove_vertex\ncant remove_vertex");
     }
 
-    for (int i = 0; i < vec.size(); ++i)
+    for (int i = 0; i < m_graph.size(); ++i)
     {
         this->remove_edge(i, vertex);
     }
 
-    for (int i = vertex; i < vec.size(); ++i)
+    for (int i = vertex; i < m_graph.size(); ++i)
     {
-        for (int j = 0; j < vec[i].size(); ++j)
+        for (int j = 0; j < m_graph[i].size(); ++j)
         {
-            if (vec[i][j] > vertex)
+            if (m_graph[i][j] > vertex)
             {
-                vec[i][j]--;
+                m_graph[i][j]--;
             }
         }
     }
 
-    vec.erase(vec.begin() + vertex);
+    m_graph.erase(m_graph.begin() + vertex);
 }
