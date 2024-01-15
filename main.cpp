@@ -92,8 +92,11 @@ int main()
 
     g.remove_vertex(2);
     std::cout << std::endl;
+
+    g.bfs(0);
     g.print();
     // g.remove_edge(0, 1);
+
 
     std::vector<int> i;
 
