@@ -13,8 +13,8 @@ public:
 
 public:
     void add_edge(int vertex, int vertex1, int weight); // Add a weighted edge between two vertices in the graph
-    std::vector<int> dijkstra(int curVert); /* Perform Dijkstra's algorithm to find the shortest paths from a
-                                             * source vertex to all other vertecces */
+    std::vector<int> dijkstra(int curVert);             /* Perform Dijkstra's algorithm to find the shortest paths from a
+                                                         * source vertex to all other vertecces */
 
 private:
     void dijkstra_helper(int vertex, std::vector<int>& fast); // Helper function for Dijkstra's algorithm
