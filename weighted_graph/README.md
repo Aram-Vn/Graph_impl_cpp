@@ -13,6 +13,7 @@ A C++ class for representing a weighted graph with Dijkstra's algorithm for find
 ## Graph Algorithm
 
 - `dijkstra(int curVert)`: Performs Dijkstra's algorithm to find the shortest paths from a source vertex to all other vertices.
+- `dijkstra_print int(curVert)` : prints shortest paths from a given node(curVert) to all other vertecces
 
 ### Private Helper Function
 

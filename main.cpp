@@ -41,23 +41,25 @@ int main()
 
     int cur_node = 0;
 
-    std::vector<int> v = wg.dijkstra(cur_node);
+    wg.dijkstra_print(0);
 
-    int j = 0;
+    // std::vector<int> v = wg.dijkstra(cur_node);
 
-    for (int i : v)
-    {
-        if (i == std::numeric_limits<int>::max())
-        {
-            ++j;
-            continue;
-        }
+    // int j = 0;
 
-        std::cout << "shortest path from  " << cur_node << "  to  " << j << "  is  " << i;
-        ++j;
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
+    // for (int i : v)
+    // {
+    //     if (i == std::numeric_limits<int>::max())
+    //     {
+    //         ++j;
+    //         continue;
+    //     }
+
+    //     std::cout << "shortest path from  " << cur_node << "  to  " << j << "  is  " << i;
+    //     ++j;
+    //     std::cout << std::endl;
+    // }
+    // std::cout << std::endl;
 
     //---------------------------_UnweightedGraph_TEST_---------------------------------//
     std::cout << "\nUNWeightedGraph_TEST\n" << "***************************\n" << std::endl;
