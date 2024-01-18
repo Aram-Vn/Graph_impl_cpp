@@ -29,3 +29,7 @@ A C++ class for representing an unweighted graph with essential operations.
 - `dfs(int curVert, int destVert, std::unordered_set<int>& visited, std::vector<int>& path, std::vector<int>& short_path) const`: Depth-First Search helper function for the `shortest_path` function.\
 
 ---
+
+## Implementation Details
+
+- The weighted graph is represented using an adjacency list.
